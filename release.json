@@ -1,0 +1,17 @@
+{
+  "fileMap": [
+    {
+      "src": "./.vitepress/dist/",
+      "dest": "/www/wwwroot/zujian.net",
+      "order": 0
+    },
+    {
+      "src": "./.vitepress/dist/",
+      "dest": "/www/wwwroot/widgetjs.cn",
+      "order": 1
+    }
+  ],
+  "ftpConfig": {
+    "host": ["mine"]
+  }
+}

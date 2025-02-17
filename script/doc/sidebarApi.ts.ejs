@@ -1,0 +1,7 @@
+import type { DefaultTheme } from 'vitepress'
+
+export function sidebarApi():DefaultTheme.SidebarItem[] {
+  return [<% for(var i=0; i<apiList.length; i++) {%>
+    { text: '<%= apiList[i] %>', link: '/api/<%= apiList[i] %>' },<% } %>
+  ]
+}

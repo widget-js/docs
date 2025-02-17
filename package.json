@@ -1,0 +1,25 @@
+{
+  "type": "module",
+  "private": true,
+  "name": "@widget-js/docs",
+  "scripts": {
+    "docs:dev": "vitepress dev .",
+    "build": "esno script/genApiDoc.ts && vitepress build .",
+    "docs:preview": "vitepress preview .",
+    "release": "widget release -t ftp",
+    "genApiDoc": "esno script/genApiDoc.ts",
+    "genSidebarApi": "esno ./script/doc/genSidebarApi"
+  },
+  "devDependencies": {
+    "@types/ejs": "^3.1.5",
+    "@widget-js/cli": "workspace:*",
+    "ejs": "3.1.10",
+    "esno": "^4.0.0",
+    "fast-glob": "^3.3.2",
+    "node-html-parser": "^6.1.13",
+    "simple-git": "^3.22.0",
+    "typescript": "^5.2.2",
+    "vitepress": "1.2.2"
+  },
+  "version": "24.1.1-beta.40"
+}
