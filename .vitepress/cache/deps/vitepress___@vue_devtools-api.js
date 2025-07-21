@@ -520,7 +520,7 @@ async function _applyPromised(fn, _this, args) {
   return await fn.apply(_this, args);
 }
 
-// ../../../node_modules/.pnpm/@vue+devtools-kit@7.2.1_vue@3.4.21/node_modules/@vue/devtools-kit/dist/index.js
+// ../../../node_modules/.pnpm/@vue+devtools-kit@7.2.1_vue@3.4.21_typescript@5.5.2_/node_modules/@vue/devtools-kit/dist/index.js
 var __create2 = Object.create;
 var __defProp2 = Object.defineProperty;
 var __getOwnPropDesc2 = Object.getOwnPropertyDescriptor;

@@ -23,12 +23,9 @@
 
 ## 启用开发者模式
 
-#### 1. 打开桌面组件客户端后，右击右下角托盘图标，再点击设置
-![Tray Setting Menu](/assets/guide/tray-setting-menu.png)
+#### 打开桌面组件客户端后，右击右下角托盘图标，再长按GitHub图标5秒，启用开发者模式
 
-#### 2. 在设置页面长按GitHub图标5秒，启用开发者模式
-
-![Tray Setting Menu](/assets/guide/github.png)
+![Tray Setting Menu](/assets/guide/enable-dev.png)
 
 #### 开启后，鼠标右键点击组件会弹出DevTools菜单
 

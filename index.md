@@ -18,7 +18,7 @@ hero:
       link: https://www.microsoft.com/store/productId/9NPR50GQ7T53
     - theme: brand
       text: 本站下载
-      link: https://file.widgetjs.cn/installer.exe
+      link: https://widget-fun.oss-cn-hangzhou.aliyuncs.com/version/installer.exe
     - theme: alt
       text: 查看源码
       link: https://github.com/widget-js/widgets

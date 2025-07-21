@@ -39,8 +39,10 @@ export function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '准备工作', link: '/guide/publish/preparation' },
-        { text: '通过GitHub发布', link: '/guide/publish/github' },
-        { text: '通过服务器发布', link: '/guide/publish/self-host' },
+        { text: '编译', link: '/guide/publish/build' },
+        { text: '发布', link: '/guide/publish/release' },
+        // { text: '通过GitHub发布', link: '/guide/publish/github' },
+        // { text: '通过服务器发布', link: '/guide/publish/self-host' },
       ],
     },
     {
