@@ -58,7 +58,7 @@ export default defineConfig({
 
 function nav(): any[] {
   return [
-    { text: 'Guide（Beta）', link: '/guide/index', activeMatch: '/guide/' },
+    { text: '开发指南', link: '/guide/index', activeMatch: '/guide/' },
     { text: 'API', link: '/api/AppApi', activeMatch: '/api/' },
     {
       text: pkg.version,

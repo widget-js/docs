@@ -1,12 +1,19 @@
-# 离线组件包打包与发布
+# 编译离线包
+
+:::warning
+离线包一定要将路由模式设置为 `Hash` 模式，否则组件包无法正常使用。
+:::
 
 ## 1. 配置路由为 Hash 模式
 
 在`vue-router`路由配置文件中，设置 `createWebHashHistory()` 以启用 Hash 路由模式：
 
 ```js
-history: createWebHashHistory(), // 👈 启用 Hash 路由模式
-// ...其他配置
+const router = createRouter({
+  history: createWebHashHistory(import.meta.env.BASE_URL), // 👈 启用 Hash 路由模式
+  routes: [
+  ],
+})
 ```
 
 ## 2. 设置组件包 Hash 路由
@@ -42,6 +49,6 @@ npm run build:offline
 
 ## 4. 安装离线组件包
 
-将 `widget.zip` 拖拽到搜索界面中，即可完成离线安装。
+将 `widget.zip` 拖拽到`搜索界面`中，即可完成离线安装。
 
 ![](/assets/guide/publish/drop.png)
