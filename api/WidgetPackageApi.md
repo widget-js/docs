@@ -1,36 +1,116 @@
 # WidgetPackageApi
 
-WidgetPackageApi 提供了组件包的升级、获取、安装等功能  
+## API各个函数功能
 
-## getEntryUrl
+### `upgrade`
 
-获取组件包入口url信息  
+Upgrade widget package
 
-## getIndexUrl
+**Params:**
 
-获取组件包的首页url信息  
+| Param Name | Description |
+| --- | --- |
+| `packageName` | Widget package name |
+| `remoteUrlInfo` | - |
 
-## getPackage
+**Signature:**
+```typescript
+upgrade: (packageName: string, remoteUrlInfo: RemotePackageUrlInfo) => Promise<void>
+```
 
-通过包名获取组件包信息  
+### `getIndexUrl`
 
-## getPackages
+Get index url information of the widget package
 
-获取已经安装的组件包  
+**Params:**
 
-## install
+| Param Name | Description |
+| --- | --- |
+| `packageName` | - |
 
-安装组件包  
+**Signature:**
+```typescript
+getIndexUrl: (packageName: string) => Promise<string | null>
+```
 
-## upgrade
+### `getEntryUrl`
 
-升级组件包  
+Get entry url information of the widget package
 
-- _**packageName**_: 组件包名称  
+**Params:**
 
-# WidgetPackageApiEvent
+| Param Name | Description |
+| --- | --- |
+| `packageName` | - |
 
-|Event|Comment|Payload|
-|---|---|---|
-|PACKAGE_UPGRADE|组件包升级事件||
-|PACKAGE_INSTALLED|组件包安装事件||
+**Signature:**
+```typescript
+getEntryUrl: (packageName: string) => Promise<string | null>
+```
+
+### `getPackage`
+
+Get widget package information by package name
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `name` | - |
+
+**Signature:**
+```typescript
+getPackage: (name: string) => Promise<WidgetPackage | undefined>
+```
+
+### `getPackages`
+
+Get installed widget packages
+
+**Signature:**
+```typescript
+getPackages: () => Promise<WidgetPackage[]>
+```
+
+### `install`
+
+Install a widget package, if the package is a string, it will be treated as a path or http url to install the widget.zip file.
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `widgetPackage` | - |
+
+**Signature:**
+```typescript
+install: (widgetPackage: WidgetPackage | string) => Promise<void>
+```
+
+### `uninstall`
+
+Uninstall a widget package by package name.
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `packageName` | - |
+| `clearData` | Whether to clear the data of the widget package, default is false.  |
+
+**Signature:**
+```typescript
+uninstall: (widgetPackage: WidgetPackage | string, clearData?: boolean) => Promise<void>
+```
+
+## API事件 Event
+
+| Event Name | Value | Description |
+| --- | --- | --- |
+| `PACKAGE_UPGRADE` | `'event::cn.widgetjs.core.widget.package.upgraded'` | Widget package upgraded event |
+| `PACKAGE_INSTALLED` | `'event::cn.widgetjs.core.widget.package.installed'` | Widget package installed event |
+
+## API常量 Constants
+
+暂无常量
+

@@ -1,137 +1,336 @@
 # AppApi
 
-AppApi 接口定义了与应用程序相关的一系列方法。这些方法提供了应用程序配置管理、版本信息获取、路径获取以及应用内置窗口操作等功能。  
+## API各个函数功能
 
+### `setConfig`
 
+Set configuration
 
+**Params:**
 
-参考：
+| Param Name | Description |
+| --- | --- |
+| `key` | string |
+| `value` | string | number | boolean  |
 
-- [Electron API App](https://www.electronjs.org/docs/latest/api/app)
+**Signature:**
+```typescript
+setConfig: (key: string | AppApiConstants, value: string | number | boolean) => Promise<any>
+```
 
-## getAppPath
+### `getConfig`
 
-获取应用安装路径  
+Get configuration
 
+**Params:**
 
-**return**: Promise&lt;string&gt;  
+| Param Name | Description |
+| --- | --- |
+| `key` | - |
+| `defaultValue` | - |
 
-## getConfig
+**Returns:** `Promise<string | number | boolean>`
 
-获取配置  
+**Signature:**
+```typescript
+getConfig: <T extends string | number | boolean>(key: string | AppApiConstants, defaultValue: T) => Promise<T>
+```
 
+### `getVersion`
 
-**return**: Promise&lt;string | number | boolean&gt;  
+Get version information
 
-## getDevMode
+**Params:**
 
-是否使用开发者模式  
+| Param Name | Description |
+| --- | --- |
+| `type` | string - Optional. Specify the type of version to get. <ol> <li>`app`: Get app's version with Semantic Versioning format. The version is different from Microsoft store's version. For example, if the app's version is `24.1.1`, Microsoft store's version will be `24.1.1.0`</li> <li>`electron`: Get the version of the Electron framework.</li> <li>`chrome`: Get the Chromium version used by Electron.</li> <li>`node`: Get the Node.js version.</li> <li>`v8`: Get the V8 engine version.</li> </ol> |
 
-## getIconFile
+**Returns:** `Promise<string>`
 
-获取应用图标文件路径  
+**Signature:**
+```typescript
+getVersion: (type?: 'app' | 'electron' | 'chrome' | 'node' | 'v8') => Promise<string>
+```
 
+### `getRuntimeInfo`
 
-**return**: Promise&lt;string&gt;  
+Get App's runtime info (e.g. app name, os/electron/node version, etc.)
 
-## getPreloadPath
+**Signature:**
+```typescript
+getRuntimeInfo: () => Promise<AppRuntimeInfo>
+```
 
-获取Preload JS路径  
+### `getPreloadPath`
 
+Get Preload JS path
+@see [Using Preload Scripts](https://www.electronjs.org/docs/latest/tutorial/tutorial-preload)
 
-**return**: Promise&lt;string&gt;  
+**Returns:** `Promise<string>`
 
+**Signature:**
+```typescript
+getPreloadPath: () => Promise<string>
+```
 
+### `getAppPath`
 
+Get application installation path
 
-参考：
+**Returns:** `Promise<string>`
 
-- [Using Preload Scripts](https://www.electronjs.org/docs/latest/tutorial/tutorial-preload)
+**Signature:**
+```typescript
+getAppPath: () => Promise<string>
+```
 
-## getProxy
+### `openAddWidgetWindow`
 
-## getThemeCSS
+Open the app's add/search widget window
+@deprecated Use `showAppWindow('/widget/add', options)` instead, which is more flexible and supports custom routes.
 
-获取应用全局主题CSS  
+**Signature:**
+```typescript
+openAddWidgetWindow: () => Promise<void>
+```
 
+### `showAppWindow`
 
-**return**: Promise&lt;string&gt;  如果没有设置全局主题，会返回空字符串  
+Show a new window with specified route and options
+support routes:
+/user/profile
+/auth/register
 
-## getVersion
+**Params:**
 
-获取版本信息  
+| Param Name | Description |
+| --- | --- |
+| `route` | - |
+| `options` | - |
 
-- _**type**_:string - 可选。指定要获取的版本类型。
+**Signature:**
+```typescript
+showAppWindow: (route: string | AppRoutes, options?: BrowserWindowOptions) => Promise<void>
+```
 
+### `openSettingWindow`
 
-    - `app`: 获取应用程序的版本（默认）。  
-    - `electron`: 获取 Electron 框架的版本。  
-    - `chrome`: 获取 Electron 使用的 Chromium 版本。  
-    - `node`: 获取 Node.js 的版本。  
-    - `v8`: 获取 V8 引擎的版本。  
+Open the app's setting window
+@deprecated Use `showAppWindow('/setting/common', options)` instead, which is more flexible and supports custom routes.
 
+**Signature:**
+```typescript
+openSettingWindow: () => Promise<void>
+```
 
+### `openCheckUpdateWindow`
 
-**return**: Promise&lt;string&gt;  
+Open the app's update window
+@deprecated Use `showAppWindow('/widget/info', options)` instead, which is more flexible and supports custom routes.
 
-## isWindowsStore
+**Signature:**
+```typescript
+openCheckUpdateWindow: () => Promise<void>
+```
 
-一个布尔值。如果应用程序作为 Windows Store应用程序（appx）运行，则此属性为 true。  
+### `openWidgetManagerWindow`
 
+open the app's widget manager window
+@deprecated Use `showAppWindow('/widget/search', options)` instead, which is more flexible and supports custom routes.
 
-**return**: Promise&lt;boolean&gt;  
+**Signature:**
+```typescript
+openWidgetManagerWindow: () => Promise<void>
+```
 
-## openAddWidgetWindow
+### `openWidgetPackageManagerWindow`
 
-打开添加组件窗口  
+@deprecated Use `showAppWindow('/widget/package', options)` instead, which is more flexible and supports custom routes.
 
-## openSettingWindow
+**Signature:**
+```typescript
+openWidgetPackageManagerWindow: () => Promise<void>
+```
 
-打开应用设置窗口  
+### `openRuntimeInfoWindow`
 
-## setConfig
+Open the app's runtime info window
+@deprecated Use `showAppWindow('/setting/info', options)` instead, which is more flexible and supports custom routes.
 
-设置配置  
+**Signature:**
+```typescript
+openRuntimeInfoWindow: () => Promise<void>
+```
 
-- _**key**_: string  
+### `getIconFile`
 
-- _**value**_: string | number | boolean  
+Get the app's icon file path
 
-## setDevMode
+**Returns:** `Promise<string>`
 
-是否使用开发者模式  
+**Signature:**
+```typescript
+getIconFile: () => Promise<string>
+```
 
-## setProxy
+### `isWindowsStore`
 
-设置应用全局网络代理，传空对象会清除代理设置  
+Check if the app is running as Windows Store app (appx)
 
+**Returns:** `Promise<boolean>`
 
-**Example:**
+**Signature:**
+```typescript
+isWindowsStore: () => Promise<boolean>
+```
+
+### `getLanguageCode`
+
+Get app's language, if user has not set, return `navigator.language`
+
+**Signature:**
+```typescript
+getLanguageCode: () => Promise<string>
+```
+
+### `setLanguageCode`
+
+Set app's language
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `code` | - |
+
+**Signature:**
+```typescript
+setLanguageCode: (code: LanguageCode) => Promise<void>
+```
+
+### `setProxy`
+
+Set app's global proxy settings, set empty string to disable proxy
+@example
 ```typescript
 AppApi.setProxy({
-    proxyRules:'socks5://127.0.0.1:7890'
+proxyRules:'socks5://127.0.0.1:7890'
 })
 ```
 
+**Params:**
 
-## setThemeCSS
+| Param Name | Description |
+| --- | --- |
+| `config` | - |
 
-设置应用全局主题CSS  
+**Signature:**
+```typescript
+setProxy: (config: ProxyConfig) => Promise<void>
+```
 
-# AppApiEvent
+### `getProxy`
 
-|Event|Comment|Payload|
-|---|---|---|
-|CONFIG_CHANGED|应用设置变更时触发||
-|MOVING_GRID_WINDOW|桌面组件网格窗口移动时触发||
-|STOP_MOVING_GRID_WINDOW|桌面组件网格窗口停止移动时触发||
-|PROXY_CHANGED|应用代理发生变化||
+**Signature:**
+```typescript
+getProxy: () => Promise<ProxyConfig>
+```
 
-# AppApiConstants
+### `setThemeCSS`
 
-|Event|Comment|Payload|
-|---|---|---|
-|CONFIG_GRID_CELL_SIZE|桌面组件网格大小||
-|CONFIG_WIDGET_THEME_CSS|应用主题CSS设置||
-|CONFIG_PROXY|应用全局代理设置||
-|CONFIG_DEV_MODE|||
+Set app's global theme CSS
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `css` | - |
+
+**Signature:**
+```typescript
+setThemeCSS: (css: string) => Promise<void>
+```
+
+### `getThemeCSS`
+
+Get the app's global theme CSS
+
+**Returns:** `Promise<string>` If the theme CSS is not set, return empty string
+
+**Signature:**
+```typescript
+getThemeCSS: () => Promise<string>
+```
+
+### `setDevMode`
+
+enable/disable developer mode
+
+**Signature:**
+```typescript
+setDevMode: (enable: boolean) => Promise<void>
+```
+
+### `getDevMode`
+
+get developer mode is enabled
+
+**Signature:**
+```typescript
+getDevMode: () => Promise<boolean>
+```
+
+### `getGridCellSize`
+
+Get the app's desktop grid system cell size
+
+**Signature:**
+```typescript
+getGridCellSize: () => Promise<number>
+```
+
+### `setGridCellSize`
+
+Set the app's desktop grid system cell size
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `size` | - |
+
+**Signature:**
+```typescript
+setGridCellSize: (size: number) => Promise<void>
+```
+
+### `exit`
+
+exit application
+
+**Signature:**
+```typescript
+exit: () => Promise<void>
+```
+
+## API事件 Event
+
+| Event Name | Value | Description |
+| --- | --- | --- |
+| `CONFIG_CHANGED` | `'event::cn.widgetjs.core.app.config.changed'` | Triggered when application settings change |
+| `MOVING_GRID_WINDOW` | `'event::cn.widgetjs.core.app.moving.grid.window'` | Triggered when the desktop widget grid window moves |
+| `STOP_MOVING_GRID_WINDOW` | `'event::cn.widgetjs.core.app.moving.grid.window.stop'` | Triggered when the desktop widget grid window stops moving |
+| `PROXY_CHANGED` | `'event::cn.widgetjs.core.app.proxy.changed'` | Application proxy changed |
+| `LANGUAGE_CHANGED` | `'event::cn.widgetjs.core.app.language.changed'` | Application language changed |
+
+## API常量 Constants
+
+| Constant Name | Value | Description |
+| --- | --- | --- |
+| `CONFIG_GRID_CELL_SIZE` | `'cn.widgetjs.config.grid.size'` | Desktop widget grid size |
+| `CONFIG_WIDGET_THEME_CSS` | `'cn.widgetjs.config.widget.theme.css'` | Application theme CSS settings |
+| `CONFIG_PROXY` | `'cn.widgetjs.config.app.proxy'` | Application global proxy settings |
+| `CONFIG_DEV_MODE` | `'cn.widgetjs.config.app.dev.mode'` | - |
+| `CONFIG_LANGUAGE` | `'cn.widgetjs.config.app.language'` | Application language settings |
+

@@ -1,303 +1,601 @@
 # BrowserWindowApi
 
-BrowserWindowApi 接口定义了一系列用于控制窗口的方法，这些方法提供了窗口的显示、隐藏、移动、调整大小等功能  
+## API各个函数功能
 
-> 注意：桌面类型组件不支持窗口移动、调整大小、最大化、最小化等操作
+### `setIgnoreMouseEvent`
 
-## alignToScreen
+Set whether to ignore mouse events
 
-将窗口对齐到当前屏幕  
+**Params:**
 
-- _**align**_:string 对齐位置
+| Param Name | Description |
+| --- | --- |
+| `ignore` | boolean  |
 
+**Signature:**
+```typescript
+setIgnoreMouseEvent: (ignore: boolean) => Promise<void>
+```
 
-    - 'top-left'  
-    - 'top-center'  
-    - 'top-right'  
-    - 'bottom-left'  
-    - 'bottom-center'  
-    - 'bottom-right'  
+### `show`
 
+Show window
 
-## blur
+**Signature:**
+```typescript
+show: () => Promise<void>
+```
 
-使窗口失去焦点  
+### `setHasShadow`
 
-## center
+Set whether the window has a shadow
 
-将窗口居中  
+**Params:**
 
-## close
+| Param Name | Description |
+| --- | --- |
+| `hasShadow` | boolean  |
 
-关闭窗口  
+**Signature:**
+```typescript
+setHasShadow: (hasShadow: boolean) => Promise<void>
+```
 
-## existsByUrl
+### `hide`
 
-检查指定 URL 是否存在  
+Hide window
 
-- _**url**_: - 要检查的 URL  
+**Signature:**
+```typescript
+hide: () => Promise<void>
+```
 
+### `close`
 
-**return**: Promise&lt;boolean&gt;  
+Close window
 
-## focus
+**Signature:**
+```typescript
+close: () => Promise<void>
+```
 
-聚焦窗口  
+### `showInactive`
 
-## getBackgroundThrottling
+Show window without activating it
 
-## getBounds
+**Signature:**
+```typescript
+showInactive: () => Promise<void>
+```
 
-获取窗口边界  
+### `center`
 
+Center window
 
-**return**: Promise&lt;Rectangle&gt;  
+**Signature:**
+```typescript
+center: () => Promise<void>
+```
 
-## getMaximumSize
+### `minimize`
 
-获取窗口的最大尺寸  
+Minimize window
 
+**Signature:**
+```typescript
+minimize: () => Promise<void>
+```
 
-**return**: 返回一个 Promise，解析为一个数组，包含窗口的最大宽度和高度  
+### `restore`
 
-## getMinimumSize
+Restore window
 
-获取窗口的最小尺寸  
+**Signature:**
+```typescript
+restore: () => Promise<void>
+```
 
+### `isMinimized`
 
-**return**: 返回一个 Promise，解析为一个数组，包含窗口的最小宽度和高度  
+Whether the window is minimized
 
-## getPosition
+**Returns:** `Promise<boolean>`
 
-获取窗口位置  
+**Signature:**
+```typescript
+isMinimized: () => Promise<boolean>
+```
 
+### `isMaximized`
 
-**return**: 返回一个 Promise，解析为窗口的位置  
+Check if the window is maximized
 
-## getSize
+**Returns:** `Promise<boolean>`
 
-获取窗口大小  
+**Signature:**
+```typescript
+isMaximized: () => Promise<boolean>
+```
 
+### `isVisible`
 
-**return**: Promise&lt;number[]&gt;  
+Check if the window is visible
 
-## hide
+**Returns:** `Promise<boolean>`
 
-隐藏窗口  
+**Signature:**
+```typescript
+isVisible: () => Promise<boolean>
+```
 
-## isAlwaysOnTop
+### `isResizable`
 
-检查窗口是否总在最前  
+Check if the window is resizable
+@since 24.1.1-beta.6
 
+**Returns:** `Promise<boolean>`
 
-**return**: Promise&lt;boolean&gt;  
+**Signature:**
+```typescript
+isResizable: () => Promise<boolean>
+```
 
-## isDraggingWindow
+### `maximize`
 
-检查窗口是否正在拖动  
+Maximize window
 
+**Signature:**
+```typescript
+maximize: () => Promise<void>
+```
 
-**return**: Promise&lt;boolean&gt;  
+### `stopDraggingWindow`
 
-## isFocused
+Stop dragging the window
 
+**Signature:**
+```typescript
+stopDraggingWindow: () => Promise<void>
+```
 
-**return**: Promise&lt;boolean&gt;  
+### `startDraggingWindow`
 
-## isMaximized
+Start dragging the window
 
-检查窗口是否最大化  
+**Signature:**
+```typescript
+startDraggingWindow: () => Promise<void>
+```
 
+### `isDraggingWindow`
 
-**return**: Promise&lt;boolean&gt;  
+Check if the window is being dragged
 
-## isMinimized
+**Returns:** `Promise<boolean>`
 
-窗口是否最小后  
+**Signature:**
+```typescript
+isDraggingWindow: () => Promise<boolean>
+```
 
+### `setAlwaysOnTop`
 
-**return**: Promise&lt;boolean&gt;  
+Set whether the window is always on top
 
-## isResizable
+**Params:**
 
-检查窗口是否可调整大小  
+| Param Name | Description |
+| --- | --- |
+| `alwaysOnTop` | boolean  |
 
+**Signature:**
+```typescript
+setAlwaysOnTop: (alwaysOnTop: boolean) => Promise<void>
+```
 
-**return**: Promise&lt;boolean&gt;  
+### `isAlwaysOnTop`
 
-## isVisible
+Check if the window is always on top
 
-检查窗口是否可见  
+**Returns:** `Promise<boolean>`
 
+**Signature:**
+```typescript
+isAlwaysOnTop: () => Promise<boolean>
+```
 
-**return**: Promise&lt;boolean&gt;  
+### `openUrl`
 
-## maximize
+Open specified URL
 
-最大化窗口  
+**Params:**
 
-## minimize
+| Param Name | Description |
+| --- | --- |
+| `url` | string The URL to open |
+| `option` | OpenUrlOptions - Optional parameters for configuring how the URL is opened  |
 
-最小化窗口  
+**Signature:**
+```typescript
+openUrl: (url: string, option?: BrowserWindowOptions) => Promise<void>
+```
 
-## moveTop
+### `moveTop`
 
-将窗口置于最前  
+Move the window to the top
 
-## openDevTools
+**Signature:**
+```typescript
+moveTop: () => Promise<void>
+```
 
-打开开发者工具  
+### `unmaximize`
 
-## openUrl
+Unmaximize window
 
-打开指定的 URL  
+**Signature:**
+```typescript
+unmaximize: () => Promise<void>
+```
 
-- _**url**_: string 要打开的 URL  
+### `reload`
 
-- _**option**_: OpenUrlOptions - 可选参数，用于配置 URL 打开的方式  
+Reload window
 
-## reload
+**Signature:**
+```typescript
+reload: () => Promise<void>
+```
 
-重新加载窗口  
+### `setSize`
 
-## restore
+Set window size
 
-还原窗口  
+**Params:**
 
-## setAlwaysOnTop
+| Param Name | Description |
+| --- | --- |
+| `width` | boolean - Window width |
+| `height` | boolean - Window height |
+| `animate` | boolean - Whether to use animation (optional)  |
 
-设置窗口是否总在最前  
+**Signature:**
+```typescript
+setSize: (width: number, height: number, animate?: boolean) => Promise<void>
+```
 
-- _**alwaysOnTop**_: boolean  
+### `getSize`
 
-## setBackgroundThrottling
+Get window size
+@since 24.1.1-beta.6
 
-Controls whether or not this window's WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.  
+**Returns:** `Promise<number[]>`
 
+**Signature:**
+```typescript
+getSize: () => Promise<number[]>
+```
 
+### `openDevTools`
 
+Open developer tools
 
-参考：
+**Signature:**
+```typescript
+openDevTools: () => Promise<void>
+```
 
-- ://www.electronjs.org/docs/latest/api/web-contents#contentssetbackgroundthrottlingallowed
+### `setPosition`
 
-## setBounds
+Set window position
 
-设置窗口边界  
+**Params:**
 
-- _**bounds**_: - 窗口的边界矩形  
+| Param Name | Description |
+| --- | --- |
+| `{SetPositionOptions}` | options - Options for configuring the window position  |
 
-- _**animate**_: - 是否启用动画  
+**Signature:**
+```typescript
+setPosition: (options: SetPositionOptions) => Promise<void>
+```
 
-## setHasShadow
+### `getPosition`
 
-设置窗口是否有阴影  
+Get window position
 
-- _**hasShadow**_: boolean  
+**Returns:** {`Promise<Position>`} Returns a Promise that resolves to the window's position
 
-## setIgnoreMouseEvent
+**Signature:**
+```typescript
+getPosition: () => Promise<Position>
+```
 
-设置是否忽略鼠标事件  
+### `blur`
 
-- _**ignore**_: boolean  
+Blur window
 
-## setMaximumSize
+**Signature:**
+```typescript
+blur: () => Promise<void>
+```
 
-设置窗口的最大尺寸  
+### `focus`
 
-- _**width**_: - 最大宽度  
+Focus window
 
-- _**height**_: - 最大高度  
+**Signature:**
+```typescript
+focus: () => Promise<void>
+```
 
-## setMinimumSize
+### `setResizable`
 
-设置窗口的最小尺寸  
+Set whether the window is resizable
 
-- _**width**_: - 最大宽度  
+**Params:**
 
-- _**height**_: - 最大高度  
+| Param Name | Description |
+| --- | --- |
+| `resizable` | boolean - Whether it is resizable  |
 
-## setMovable
+**Signature:**
+```typescript
+setResizable: (resizable: boolean) => Promise<void>
+```
 
-设置窗口是否可移动  
+### `setMovable`
 
-- _**movable**_: boolean - 是否可移动  
+Set whether the window is movable
 
-## setNoActivate
+**Params:**
 
-A top-level window created with this style does not become the foreground window when the user clicks it. The system does not bring this window to the foreground when the user minimizes or closes the foreground window.
-The window should not be activated through programmatic access or via keyboard navigation by accessible technology, such as Narrator.  
+| Param Name | Description |
+| --- | --- |
+| `movable` | boolean - Whether it is movable  |
 
+**Signature:**
+```typescript
+setMovable: (movable: boolean) => Promise<void>
+```
 
+### `getBounds`
 
+Get window bounds
 
-参考：
+**Returns:** `Promise<Rectangle>`
 
-- [Extended Window Styles](https://learn.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles)
+**Signature:**
+```typescript
+getBounds: () => Promise<Rectangle>
+```
 
-## setPosition
+### `setBounds`
 
-设置窗口位置  
+Set window bounds
 
-- _**options**_: - 配置窗口位置的选项  
+**Params:**
 
-## setProxy
+| Param Name | Description |
+| --- | --- |
+| `{Partial<Rectangle>}` | bounds - The bounds rectangle of the window |
+| `{boolean}` | animate - Whether to enable animation  |
 
-设置窗口网络代理，设置后所有链接都会断开，最好重新刷新下页面(window.location.reload())  
+**Signature:**
+```typescript
+setBounds: (bounds: Partial<Rectangle>, animate: boolean) => Promise<void>
+```
 
+### `alignToScreen`
 
-**Example:**
+Align the window to the current screen
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `align` | string Alignment position <ol> <li>'top-left'</li> <li>'top-center'</li> <li>'top-right'</li> <li>'bottom-left'</li> <li>'bottom-center'</li> <li>'bottom-right'</li> </ol>  |
+
+**Signature:**
+```typescript
+alignToScreen: (align: AlignPosition) => Promise<void>
+```
+
+### `existsByUrl`
+
+Check if the specified URL exists
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `{string}` | url - The URL to check |
+
+**Returns:** `Promise<boolean>`
+
+**Signature:**
+```typescript
+existsByUrl: (url: string) => Promise<boolean>
+```
+
+### `getMaximumSize`
+
+Get the maximum size of the window
+
+**Returns:** {`Promise<number[]>`} Returns a Promise that resolves to an array containing the maximum width and height of the window
+
+**Signature:**
+```typescript
+getMaximumSize: () => Promise<number[]>
+```
+
+### `getMinimumSize`
+
+Get the minimum size of the window
+
+**Returns:** {`Promise<number[]>`} Returns a Promise that resolves to an array containing the minimum width and height of the window
+
+**Signature:**
+```typescript
+getMinimumSize: () => Promise<number[]>
+```
+
+### `setMaximumSize`
+
+Set the maximum size of the window
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `{number}` | width - Maximum width |
+| `{number}` | height - Maximum height  |
+
+**Signature:**
+```typescript
+setMaximumSize: (width: number, height: number) => Promise<void>
+```
+
+### `setMinimumSize`
+
+Set the minimum size of the window
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `{number}` | width - Maximum width |
+| `{number}` | height - Maximum height  |
+
+**Signature:**
+```typescript
+setMinimumSize: (width: number, height: number) => Promise<void>
+```
+
+### `setZoomLevel`
+
+Change the zoom level. Original size is 0, each increment or decrement represents a 20% zoom. The default upper and lower limits are 300% and 50%. The zoom formula is scale := 1.2 ^ level.
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `level` | number - Zoom level, default is 0  |
+
+**Signature:**
+```typescript
+setZoomLevel: (level: number) => Promise<void>
+```
+
+### `setZoomFactor`
+
+Change zoom factor. The zoom factor is the zoom percentage divided by 100, i.e., 300% = 3.0
+@remarks The factor must be greater than 0.0
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `factor` | Double - Zoom factor, default is 1.0 |
+
+**Signature:**
+```typescript
+setZoomFactor: (factor: number) => Promise<void>
+```
+
+### `setProxy`
+
+Set the proxy config for window. All requests will be sent through the proxy server.
+Proxy config will be lost once the window is closed. If you want to set a persistent proxy for widget window, use `DeployWidgetApi.setProxy` instead.
+@remarks All links will be disconnected after setting, it is best to refresh the page (window.location.reload())
+@example
 ```typescript
 BrowserWindowApi.setProxy({
-    proxyRules:'socks5://127.0.0.1:7890'
+proxyRules:'socks5://127.0.0.1:7890'
 })
 ```
 
+**Params:**
 
-## setResizable
+| Param Name | Description |
+| --- | --- |
+| `config` | - |
 
-设置窗口是否可调整大小  
+**Signature:**
+```typescript
+setProxy: (config: ProxyConfig) => Promise<void>
+```
 
-- _**resizable**_: boolean - 是否可调整大小  
+### `getProxy`
 
-## setSize
+**Signature:**
+```typescript
+getProxy: () => Promise<ProxyConfig | undefined>
+```
 
-设置窗口大小  
+### `isFocused`
 
-- _**width**_: boolean - 窗口宽度  
+**Returns:** `Promise<boolean>`
 
-- _**height**_: boolean - 窗口高度  
+**Signature:**
+```typescript
+isFocused: () => Promise<boolean>
+```
 
-- _**animate**_: boolean - 是否使用动画（可选）  
+### `setNoActivate`
 
-## setZoomFactor
+A top-level window created with this style does not become the foreground window when the user clicks it. The system does not bring this window to the foreground when the user minimizes or closes the foreground window.
+The window should not be activated through programmatic access or via keyboard navigation by accessible technology, such as Narrator.
+@see [Extended Window Styles](https://learn.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles)
 
-更改缩放倍数 缩放系数是缩放百分比除以 100，即 300% = 3.0  
+**Signature:**
+```typescript
+setNoActivate: () => Promise<void>
+```
 
-- _**factor**_: Double - 缩放系数，默认为 1.0  
+### `setBackgroundThrottling`
 
-## setZoomLevel
+Controls whether or not this window's WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+@see https://www.electronjs.org/docs/latest/api/web-contents#contentssetbackgroundthrottlingallowed
 
-更改缩放等级 原始尺寸为 0，每升高或将顶代表缩放20%，大和小限制默认分区为 300% 和 50% 缩放公式为 scale := 1.2 ^ level.  
+**Params:**
 
-- _**level**_: number - 缩放等级，默认为 0  
+| Param Name | Description |
+| --- | --- |
+| `enabled` | - |
 
-## show
+**Signature:**
+```typescript
+setBackgroundThrottling: (enabled: boolean) => Promise<void>
+```
 
-显示窗口  
+### `getBackgroundThrottling`
 
-## showInactive
+**Signature:**
+```typescript
+getBackgroundThrottling: () => Promise<boolean>
+```
 
-以不激活窗口的方式显示窗口  
+### `setSkipTaskbar`
 
-## startDraggingWindow
+Makes the window not show in the taskbar.
 
-开始拖动窗口  
+**Params:**
 
-## stopDraggingWindow
+| Param Name | Description |
+| --- | --- |
+| `boolean` | - |
 
-停止拖动窗口  
+**Signature:**
+```typescript
+setSkipTaskbar: (boolean: boolean) => Promise<void>
+```
 
-## unmaximize
+## API事件 Event
 
-取消最大化窗口  
+暂无事件
+
+## API常量 Constants
+
+暂无常量
+

@@ -1,37 +1,99 @@
 # NotificationApi
 
-NotificationApi提供了发送通知的能力  
+## API各个函数功能
 
-## error
+### `send`
 
-- _**message**_: string  
+Send custom notification
 
-- _**duration**_: number  持续时间，单位毫秒，默认5000  
+**Params:**
 
-## hide
+| Param Name | Description |
+| --- | --- |
+| `notification` | - |
 
-隐藏通知  
+**Signature:**
+```typescript
+send: (notification: AppNotification) => Promise<void>
+```
 
-## info
+### `hide`
 
-- _**message**_: string  
+Hide notification
 
-- _**duration**_: number  持续时间，单位毫秒，默认5000  
+**Signature:**
+```typescript
+hide: () => Promise<void>
+```
 
-## reminder
+### `success`
 
-## send
+**Params:**
 
-发送自定义通知  
+| Param Name | Description |
+| --- | --- |
+| `message` | string |
+| `duration` | number Duration in milliseconds, default 5000  |
 
-## success
+**Signature:**
+```typescript
+success: (message: string, duration?: number) => Promise<void>
+```
 
-- _**message**_: string  
+### `error`
 
-- _**duration**_: number  持续时间，单位毫秒，默认5000  
+**Params:**
 
-## warning
+| Param Name | Description |
+| --- | --- |
+| `message` | string |
+| `duration` | number Duration in milliseconds, default 5000  |
 
-- _**message**_: string  
+**Signature:**
+```typescript
+error: (message: string, duration?: number) => Promise<void>
+```
 
-- _**duration**_: number  持续时间，单位毫秒，默认5000  
+### `warning`
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `message` | string |
+| `duration` | number Duration in milliseconds, default 5000  |
+
+**Signature:**
+```typescript
+warning: (message: string, duration?: number) => Promise<void>
+```
+
+### `info`
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `message` | string |
+| `duration` | number Duration in milliseconds, default 5000  |
+
+**Signature:**
+```typescript
+info: (message: string, duration?: number) => Promise<void>
+```
+
+### `reminder`
+
+**Signature:**
+```typescript
+reminder: (option: ReminderNotificationOption) => Promise<void>
+```
+
+## API事件 Event
+
+暂无事件
+
+## API常量 Constants
+
+暂无常量
+

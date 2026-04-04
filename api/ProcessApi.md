@@ -1,19 +1,45 @@
 # ProcessApi
 
-ProcessApi 提供进程信息获取功能  
+## API各个函数功能
 
-## getBlinkMemoryInfo
+### `getBlinkMemoryInfo`
 
-## getHeapStatistics
+**Signature:**
+```typescript
+getBlinkMemoryInfo: () => Promise<Electron.BlinkMemoryInfo>
+```
 
-## getProcessMemoryInfo
+### `getHeapStatistics`
 
-获取当前应用内存信息  
+**Signature:**
+```typescript
+getHeapStatistics: () => Promise<Electron.HeapStatistics>
+```
 
-## getSystemVersion
+### `getSystemVersion`
 
-获取系统版本信息  
+Get system version information
+@example '10.0.17763'
 
+**Signature:**
+```typescript
+getSystemVersion: () => Promise<string>
+```
 
-**Example:**
-'10.0.17763'
+### `getProcessMemoryInfo`
+
+Get current application memory information
+
+**Signature:**
+```typescript
+getProcessMemoryInfo: () => Promise<Electron.ProcessMemoryInfo>
+```
+
+## API事件 Event
+
+暂无事件
+
+## API常量 Constants
+
+暂无常量
+

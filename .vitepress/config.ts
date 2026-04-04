@@ -1,15 +1,14 @@
-import { createRequire } from 'node:module'
 import type { DefaultTheme } from 'vitepress'
+import { createRequire } from 'node:module'
 import { defineConfig } from 'vitepress'
-import { sidebarGuide } from '../guide'
-import { sidebarApi } from '../api'
+import { sidebarApi, sidebarApiEn } from '../en/api'
+import { sidebarGuide, sidebarGuideEn } from '../guide'
 
 const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
 
 export default defineConfig({
-  lang: 'en-US',
-  title: '桌面组件',
+  title: 'WidgetJS',
   description: 'Capable and ergonomic widgets.',
   lastUpdated: true,
   cleanUrls: true,
@@ -27,24 +26,10 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/favicon.ico',
-    nav: nav(),
-    sidebar: {
-      '/guide/': sidebarGuide(),
-      '/api/': sidebarApi(),
-      '/reference/': sidebarReference(),
-    },
-    editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
-      text: 'Edit this page on GitHub',
-    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/widget-js/widgets' },
       { icon: 'discord', link: 'https://discord.com/invite/vwSAaRR8cT' },
     ],
-    footer: {
-      message: '<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">闽ICP备2021010730号-3</a>',
-      copyright: 'Copyright © 2023-present Neo Fu',
-    },
     // search: {
     //   provider: 'algolia',
     //   options: {
@@ -54,9 +39,77 @@ export default defineConfig({
     //   }
     // },
   },
+
+  locales: {
+    root: {
+      label: '简体中文',
+      lang: 'zh-CN',
+      title: '桌面组件',
+      description: '强大且符合人体工程学的小部件。',
+      themeConfig: {
+        nav: navZh(),
+        sidebar: {
+          '/guide/': sidebarGuide(),
+          '/api/': sidebarApi(),
+          '/reference/': sidebarReferenceZh(),
+        },
+        editLink: {
+          pattern: 'https://github.com/widget-js/widgets/edit/main/docs/:path',
+          text: '在 GitHub 上编辑此页',
+        },
+        footer: {
+          message: '<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">闽ICP备2021010730号-3</a>',
+          copyright: '版权所有 © 2023-present Neo Fu',
+        },
+        docFooter: {
+          prev: '上一页',
+          next: '下一页',
+        },
+        outline: {
+          label: '页面导航',
+        },
+        lastUpdated: {
+          text: '最后更新于',
+          formatOptions: {
+            dateStyle: 'short',
+            timeStyle: 'medium',
+          },
+        },
+        langMenuLabel: '多语言',
+        returnToTopLabel: '回到顶部',
+        sidebarMenuLabel: '菜单',
+        darkModeSwitchLabel: '主题',
+        lightModeSwitchTitle: '切换到浅色模式',
+        darkModeSwitchTitle: '切换到深色模式',
+      },
+    },
+    en: {
+      label: 'English',
+      lang: 'en-US',
+      link: '/en/',
+      title: 'Widget Hub',
+      description: 'Capable and ergonomic widgets.',
+      themeConfig: {
+        nav: navEn(),
+        sidebar: {
+          '/en/guide/': sidebarGuideEn(),
+          '/en/api/': sidebarApiEn(),
+          '/en/reference/': sidebarReferenceEn(),
+        },
+        editLink: {
+          pattern: 'https://github.com/widget-js/widgets/edit/main/docs/:path',
+          text: 'Edit this page on GitHub',
+        },
+        footer: {
+          message: '<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">闽ICP备2021010730号-3</a>',
+          copyright: 'Copyright © 2023-present Neo Fu',
+        },
+      },
+    },
+  },
 })
 
-function nav(): any[] {
+function navZh(): any[] {
   return [
     { text: '开发指南', link: '/guide/index', activeMatch: '/guide/' },
     { text: 'API', link: '/api/AppApi', activeMatch: '/api/' },
@@ -76,70 +129,83 @@ function nav(): any[] {
   ]
 }
 
-function sidebarReference(): DefaultTheme.SidebarItem[] {
+function navEn(): any[] {
+  return [
+    { text: 'Guide', link: '/en/guide/index', activeMatch: '/en/guide/' },
+    { text: 'API', link: '/en/api/AppApi', activeMatch: '/en/api/' },
+    {
+      text: pkg.version,
+      items: [
+        // {
+        //   text: 'Changelog',
+        //   link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md'
+        // },
+        // {
+        //   text: 'Contributing',
+        //   link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md'
+        // }
+      ],
+    },
+  ]
+}
+
+function sidebarReferenceZh(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: '参考',
+      items: [
+        { text: '站点配置', link: '/reference/site-config' },
+        { text: 'Frontmatter 配置', link: '/reference/frontmatter-config' },
+        { text: '运行时 API', link: '/reference/runtime-api' },
+        { text: 'CLI', link: '/reference/cli' },
+        {
+          text: '默认主题',
+          items: [
+            { text: '概览', link: '/reference/default-theme-config' },
+            { text: '导航栏', link: '/reference/default-theme-nav' },
+            { text: '侧边栏', link: '/reference/default-theme-sidebar' },
+            { text: '主页', link: '/reference/default-theme-home-page' },
+            { text: '页脚', link: '/reference/default-theme-footer' },
+            { text: '布局', link: '/reference/default-theme-layout' },
+            { text: '徽章', link: '/reference/default-theme-badge' },
+            { text: '团队页', link: '/reference/default-theme-team-page' },
+            { text: '上一页 / 下一页链接', link: '/reference/default-theme-prev-next-links' },
+            { text: '编辑链接', link: '/reference/default-theme-edit-link' },
+            { text: '最后更新时间戳', link: '/reference/default-theme-last-updated' },
+            { text: '搜索', link: '/reference/default-theme-search' },
+            { text: 'Carbon Ads', link: '/reference/default-theme-carbon-ads' },
+          ],
+        },
+      ],
+    },
+  ]
+}
+
+function sidebarReferenceEn(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: 'Reference',
       items: [
-        { text: 'Site Config', link: '/reference/site-config' },
-        { text: 'Frontmatter Config', link: '/reference/frontmatter-config' },
-        { text: 'Runtime API', link: '/reference/runtime-api' },
-        { text: 'CLI', link: '/reference/cli' },
+        { text: 'Site Config', link: '/en/reference/site-config' },
+        { text: 'Frontmatter Config', link: '/en/reference/frontmatter-config' },
+        { text: 'Runtime API', link: '/en/reference/runtime-api' },
+        { text: 'CLI', link: '/en/reference/cli' },
         {
           text: 'Default Theme',
           items: [
-            {
-              text: 'Overview',
-              link: '/reference/default-theme-config',
-            },
-            {
-              text: 'Nav',
-              link: '/reference/default-theme-nav',
-            },
-            {
-              text: 'Sidebar',
-              link: '/reference/default-theme-sidebar',
-            },
-            {
-              text: 'Home Page',
-              link: '/reference/default-theme-home-page',
-            },
-            {
-              text: 'Footer',
-              link: '/reference/default-theme-footer',
-            },
-            {
-              text: 'Layout',
-              link: '/reference/default-theme-layout',
-            },
-            {
-              text: 'Badge',
-              link: '/reference/default-theme-badge',
-            },
-            {
-              text: 'Team Page',
-              link: '/reference/default-theme-team-page',
-            },
-            {
-              text: 'Prev / Next Links',
-              link: '/reference/default-theme-prev-next-links',
-            },
-            {
-              text: 'Edit Link',
-              link: '/reference/default-theme-edit-link',
-            },
-            {
-              text: 'Last Updated Timestamp',
-              link: '/reference/default-theme-last-updated',
-            },
-            {
-              text: 'Search',
-              link: '/reference/default-theme-search',
-            },
-            {
-              text: 'Carbon Ads',
-              link: '/reference/default-theme-carbon-ads',
-            },
+            { text: 'Overview', link: '/en/reference/default-theme-config' },
+            { text: 'Nav', link: '/en/reference/default-theme-nav' },
+            { text: 'Sidebar', link: '/en/reference/default-theme-sidebar' },
+            { text: 'Home Page', link: '/en/reference/default-theme-home-page' },
+            { text: 'Footer', link: '/en/reference/default-theme-footer' },
+            { text: 'Layout', link: '/en/reference/default-theme-layout' },
+            { text: 'Badge', link: '/en/reference/default-theme-badge' },
+            { text: 'Team Page', link: '/en/reference/default-theme-team-page' },
+            { text: 'Prev / Next Links', link: '/en/reference/default-theme-prev-next-links' },
+            { text: 'Edit Link', link: '/en/reference/default-theme-edit-link' },
+            { text: 'Last Updated Timestamp', link: '/en/reference/default-theme-last-updated' },
+            { text: 'Search', link: '/en/reference/default-theme-search' },
+            { text: 'Carbon Ads', link: '/en/reference/default-theme-carbon-ads' },
           ],
         },
       ],

@@ -1,17 +1,38 @@
 # MouseApi
 
-MouseApi  
+## API各个函数功能
 
-## clearMouseHotspot
+### `createHotspot`
 
-移除鼠标屏幕边缘热点  
+Create a mouse screen edge hotspot, usually used for edge-hiding windows.
 
-## createMouseHotspot
+**Params:**
 
-创建鼠标屏幕边缘热点，通常用于贴边窗口隐藏  
+| Param Name | Description |
+| --- | --- |
+| `rect` | - |
 
-# SystemApiEvent
+**Signature:**
+```typescript
+createHotspot: (rect: Rectangle) => Promise<void>
+```
 
-|Event|Comment|Payload|
-|---|---|---|
-|HOTSPOT_ACTIVE|系统日期变更事件||
+### `removeHotspot`
+
+Remove the mouse screen edge hotspot.
+
+**Signature:**
+```typescript
+removeHotspot: () => Promise<void>
+```
+
+## API事件 Event
+
+| Event Name | Value | Description |
+| --- | --- | --- |
+| `HOTSPOT_ACTIVE` | `'event::cn.widgetjs.core.mouse.hotspot.active'` | Triggered when the mouse enters the hotspot area. |
+
+## API常量 Constants
+
+暂无常量
+

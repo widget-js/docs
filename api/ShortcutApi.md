@@ -1,47 +1,57 @@
 # ShortcutApi
 
-ShortcutApi 提供了注册快捷键的能力，当快捷键被触发时，会发送广播事件   
+## API各个函数功能
 
-## register
+### `register`
 
-注册快捷键, 如果注册成功, 触发快捷键时，会发送广播事件   
-
-- _**shortcut**_: string  
-
-
-**return**: Promise&lt;boolean&gt; true 注册成功，false 注册失败  
-
-
-**Example:**
+Register shortcut, if successful, when the shortcut is triggered, a broadcast event {@link BroadcastEvent} will be sent.
+@see [Electron Accelerator](https://www.electronjs.org/docs/latest/api/accelerator)
+@example
 ```typescript
-//Meta 通常为windows键
+// Meta is usually the Windows key
 ShortcutApi.register('Ctrl+Meta+Y')
 ```
 
+**Params:**
 
+| Param Name | Description |
+| --- | --- |
+| `shortcut` | string |
 
+**Returns:** `Promise<boolean>` true on success, false on failure
 
-
-参考：
-
-- [Electron Accelerator](https://www.electronjs.org/docs/latest/api/accelerator)
-
-## unregister
-
-注销快捷键  
-
-- _**shortcut**_: string  
-
-
-**Example:**
+**Signature:**
 ```typescript
-//Meta 通常为windows键
+register: (shortcut: string) => Promise<boolean>
+```
+
+### `unregister`
+
+Unregister shortcut
+@example
+```typescript
+// Meta is usually the Windows key
 ShortcutApi.unregister('Ctrl+Meta+Y')
 ```
 
+**Params:**
 
-# ShortcutApiEvent
+| Param Name | Description |
+| --- | --- |
+| `shortcut` | string |
 
-|Event|Comment|Payload|
-|---|---|---|
-|TRIGGERED|快捷键触发事件||
+**Signature:**
+```typescript
+unregister: (shortcut: string) => void
+```
+
+## API事件 Event
+
+| Event Name | Value | Description |
+| --- | --- | --- |
+| `TRIGGERED` | `'channel::cn.widgetjs.core.shortcut.triggered'` | Shortcut triggered event |
+
+## API常量 Constants
+
+暂无常量
+

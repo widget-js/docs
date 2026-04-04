@@ -1,13 +1,36 @@
 # DialogApi
 
-DialogApi 提供文件、文件夹选择功能  
+## API各个函数功能
 
-## pickFile
+### `pickFile`
 
-选取单个文件  
+Pick a single file
 
-- _**extensions**_: 允许的文件后缀格式，如：["txt","docx","gif"]  
+**Params:**
 
-## pickFolder
+| Param Name | Description |
+| --- | --- |
+| `extensions` | Allowed file extension formats, e.g., ["txt", "docx", "gif"]  |
 
-选取文件夹  
+**Signature:**
+```typescript
+pickFile: (extensions?: string[]) => Promise<string | undefined>
+```
+
+### `pickFolder`
+
+Pick a folder
+
+**Signature:**
+```typescript
+pickFolder: () => Promise<string | undefined>
+```
+
+## API事件 Event
+
+暂无事件
+
+## API常量 Constants
+
+暂无常量
+

@@ -5,3 +5,9 @@ export function sidebarApi():DefaultTheme.SidebarItem[] {
     { text: '<%= apiList[i] %>', link: '/api/<%= apiList[i] %>' },<% } %>
   ]
 }
+
+export function sidebarApiEn():DefaultTheme.SidebarItem[] {
+  return [<% for(var i=0; i<apiList.length; i++) {%>
+    { text: '<%= apiList[i] %>', link: '/en/api/<%= apiList[i] %>' },<% } %>
+  ]
+}

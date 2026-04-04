@@ -1,23 +1,75 @@
 # MenuApi
 
-MenuApi 接口定义了一系列用于控制窗口的方法，这些方法提供了窗口的显示、隐藏、移动、调整大小等功能  
+## API各个函数功能
 
-> 注意：桌面类型组件不支持窗口移动、调整大小、最大化、最小化等操作
+### `addMenuItem`
 
-## addContextMenuItem
+@deprecated
 
-添加上下文菜单项，最多支持二级菜单  
+**Signature:**
+```typescript
+addMenuItem: (menuItems: WidgetMenuItem[]) => Promise<void>
+```
 
-## addMenuItem
+### `addContextMenuItem`
 
-## removeContextMenuItem
+Add context menu items, up to two levels of menus are supported
 
-移除上下文菜单项  
+**Params:**
 
-## removeMenuItem
+| Param Name | Description |
+| --- | --- |
+| `menuItems` | - |
 
-## showMenu
+**Signature:**
+```typescript
+addContextMenuItem: (menuItems: WidgetMenuItem[]) => Promise<void>
+```
 
-显示自定义菜单  
+### `removeContextMenuItem`
 
-- _**options**_: ShowMenuOption  
+Remove context menu items
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `menuItemIds` | - |
+
+**Signature:**
+```typescript
+removeContextMenuItem: (menuItemIds: string[]) => Promise<void>
+```
+
+### `removeMenuItem`
+
+@deprecated
+
+**Signature:**
+```typescript
+removeMenuItem: (menuItemIds: string[]) => Promise<void>
+```
+
+### `showMenu`
+
+Show custom menu
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `options` | ShowMenuOption  |
+
+**Signature:**
+```typescript
+showMenu: (options: ShowMenuOption) => Promise<void>
+```
+
+## API事件 Event
+
+暂无事件
+
+## API常量 Constants
+
+暂无常量
+

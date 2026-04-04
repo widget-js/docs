@@ -1,13 +1,47 @@
 # LogApi
 
-LogApi提供了日志输出的方法，日志会保存在用户的`当前用户名/文档/桌面组件/logs/日期/组件包名.log`文件中  
+## API各个函数功能
 
-## error
+### `info`
 
-## info
+**Signature:**
+```typescript
+info: (...data: any[]) => void
+```
 
-## json
+### `error`
 
-## log
+**Signature:**
+```typescript
+error: (...data: any[]) => void
+```
 
-## warn
+### `warn`
+
+**Signature:**
+```typescript
+warn: (...data: any[]) => void
+```
+
+### `log`
+
+**Signature:**
+```typescript
+log: (...data: any[]) => void
+```
+
+### `json`
+
+**Signature:**
+```typescript
+json: (data: any) => void
+```
+
+## API事件 Event
+
+暂无事件
+
+## API常量 Constants
+
+暂无常量
+

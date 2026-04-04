@@ -1,28 +1,83 @@
 # SystemApi
 
+## API各个函数功能
 
-SystemApi provides functionality for retrieving system information or interacting with the system.  
+### `getWallpaper`
 
-## getHardware
+Get system wallpaper absolute path
 
-get hardware information, such as CPU, GPU, Memory, etc.  
+**Signature:**
+```typescript
+getWallpaper: () => Promise<string>
+```
 
+### `getInfo`
 
-**return**: Hardware[]  
+Get system information based on the provided valuesObject. The valuesObject can contain specific keys to retrieve certain information.
+@see   https://systeminformation.io/general.html
 
-## getHardwareSensor
+**Params:**
 
-get hardware sensor information, such as temperature, voltage, fan speed, etc.  
+| Param Name | Description |
+| --- | --- |
+| `valuesObject` | - |
 
+**Signature:**
+```typescript
+getInfo: (valuesObject: any) => Promise<any>
+```
 
-**return**: HardwareSensor[]  
+### `getUptime`
 
-## getWallpaper
+Get system uptime in seconds
 
-get system wallpaper absolute path  
+**Returns:** `Promise<number>`
 
-# SystemApiEvent
+**Signature:**
+```typescript
+getUptime: () => Promise<number>
+```
 
-|Event|Comment|Payload|
-|---|---|---|
-|DATE_CHANGED|Date changed event||
+### `launchStoreDetailsPage`
+
+Launches the full product details page (PDP) for a product at Microsoft Store.
+@see   https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-store-app
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `storeId` | - |
+
+**Signature:**
+```typescript
+launchStoreDetailsPage: (storeId?: string) => Promise<void>
+```
+
+### `launchWindowsSettings`
+
+@see https://learn.microsoft.com/en-us/windows/apps/develop/launch/launch-settings-app
+@example ms-settings:defaultapps
+@example ms-settings:startupapps
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `uri` | Use this URI scheme to launch the Windows Settings app to specific settings pages. |
+
+**Signature:**
+```typescript
+launchWindowsSettings: (uri: string) => Promise<void>
+```
+
+## API事件 Event
+
+| Event Name | Value | Description |
+| --- | --- | --- |
+| `DATE_CHANGED` | `'event::cn.widgetjs.core.sys.date.changed'` | Date changed event |
+
+## API常量 Constants
+
+暂无常量
+

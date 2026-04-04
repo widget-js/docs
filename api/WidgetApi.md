@@ -1,55 +1,223 @@
 # WidgetApi
 
-WidgetApi 接口定义了一系列用于控制组件的方法，这些方法提供了组件的注册、升级、获取、打开设置页面、重新加载等功能  
+## API各个函数功能
 
-## getWidget
+### `registerWidgets`
 
-通过组件名称获取组件  
+Register widgets
 
-- _**name**_: string 组件名  
+**Params:**
 
+| Param Name | Description |
+| --- | --- |
+| `widgets` | - |
 
-**return**: Promise&lt;Widget&gt;  
+**Signature:**
+```typescript
+registerWidgets: (widgets: Widget[]) => Promise<void>
+```
 
-## getWidgetPackage
+### `registerWidgetPackage`
 
-## getWidgetPackages
+@deprecated
 
-## getWidgetPackageUrl
+**Signature:**
+```typescript
+registerWidgetPackage: (widgetPackage: WidgetPackage) => Promise<void>
+```
 
-## getWidgets
+### `setIgnoreMouseEvents`
 
-获取所有组件  
+ignore mouse events
 
+**Params:**
 
-**return**: Promise&lt;Widget[]&gt;  
+| Param Name | Description |
+| --- | --- |
+| `widgetId` | - |
+| `ignore` | - |
 
-## openConfigPage
+**Signature:**
+```typescript
+setIgnoreMouseEvents: (widgetId: string, ignore: boolean) => Promise<void>
+```
 
-打开组件设置页面  
+### `isIgnoreMouseEvents`
 
-- _**id**_: string 组件id  
+Check if the widget is ignoring mouse events.
 
-## openConfigPageByName
+**Params:**
 
-## registerWidgetPackage
+| Param Name | Description |
+| --- | --- |
+| `widgetId` | - |
 
-## registerWidgets
+**Signature:**
+```typescript
+isIgnoreMouseEvents: (widgetId?: string) => Promise<boolean>
+```
 
-注册组件  
+### `setMouseDraggable`
 
-## reload
+Set whether the widget can be dragged with the left mouse button
+@remarks Note: Only effective for floating window widgets (DeployMode.OVERLAP)
 
-重新加载组件  
+**Params:**
 
-## setMouseDraggable
+| Param Name | Description |
+| --- | --- |
+| `draggable` | boolean true-enable left click drag false-disable left click drag |
 
-设置组件是否可以左键拖动  
+**Signature:**
+```typescript
+setMouseDraggable: (draggable: boolean) => Promise<void>
+```
 
-- _**draggable**_: boolean true-启用左键拖动 false-禁用左键拖动  
+### `upgradePackage`
 
-## upgradePackage
+Upgrade widget package
 
-升级组件包  
+**Params:**
 
-- _**packageName**_: 组件包名  
+| Param Name | Description |
+| --- | --- |
+| `packageName` | Widget package name  |
+
+**Signature:**
+```typescript
+upgradePackage: (packageName: string) => Promise<void>
+```
+
+### `getWidgets`
+
+Get all widgets
+
+**Returns:** `Promise<Widget[]>`
+
+**Signature:**
+```typescript
+getWidgets: () => Promise<Widget[]>
+```
+
+### `getWidget`
+
+Get widget by widget name
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `name` | string Widget name |
+
+**Returns:** `Promise<Widget>`
+
+**Signature:**
+```typescript
+getWidget: (name: string) => Promise<Widget>
+```
+
+### `getWidgetPackage`
+
+@deprecated
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `name` | - |
+
+**Signature:**
+```typescript
+getWidgetPackage: (name: string) => Promise<WidgetPackage | undefined>
+```
+
+### `getWidgetPackages`
+
+@deprecated
+
+**Signature:**
+```typescript
+getWidgetPackages: () => Promise<WidgetPackage[]>
+```
+
+### `openConfigPage`
+
+Open widget settings page
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `id` | string Widget id  |
+
+**Signature:**
+```typescript
+openConfigPage: (id?: string) => Promise<void>
+```
+
+### `openConfigPageByName`
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `name` | - |
+
+**Signature:**
+```typescript
+openConfigPageByName: (name: string) => Promise<void>
+```
+
+### `reload`
+
+Reload widget
+
+**Signature:**
+```typescript
+reload: (id?: string) => Promise<void>
+```
+
+### `getWidgetPackageUrl`
+
+@deprecated
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `packageName` | - |
+
+**Signature:**
+```typescript
+getWidgetPackageUrl: (packageName: string) => Promise<string | null>
+```
+
+### `restartWidgets`
+
+**Signature:**
+```typescript
+restartWidgets: (mode?: DeployMode) => Promise<void>
+```
+
+### `updateSyncInfo`
+
+**Signature:**
+```typescript
+updateSyncInfo: () => Promise<void>
+```
+
+### `getSyncInfo`
+
+**Signature:**
+```typescript
+getSyncInfo: (widgetName?: string) => Promise<WidgetSyncInfo | null>
+```
+
+## API事件 Event
+
+暂无事件
+
+## API常量 Constants
+
+暂无常量
+

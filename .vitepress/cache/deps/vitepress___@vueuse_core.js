@@ -33,9 +33,9 @@ import {
   version,
   watch,
   watchEffect
-} from "./chunk-2PLEGDKR.js";
+} from "./chunk-6CXRCVVF.js";
 
-// ../../../node_modules/.pnpm/vitepress@1.2.2_@algolia+client-search@4.23.3_@types+node@18.19.31_@types+react@18.2.75_async_mhtwkerluf2lbmetpl6kcfo3ta/node_modules/vitepress/lib/vue-demi.mjs
+// ../../../node_modules/.pnpm/vitepress@1.2.2_@algolia+client-search@5.44.0_@types+node@20.19.25_postcss@8.5.8_search-insights@2.17.3_typescript@5.9.3/node_modules/vitepress/lib/vue-demi.mjs
 var isVue2 = false;
 var isVue3 = true;
 function set(target, key, val) {
@@ -55,7 +55,7 @@ function del(target, key) {
   delete target[key];
 }
 
-// ../../../node_modules/.pnpm/@vueuse+shared@10.11.0_vue@3.4.21_typescript@5.5.2_/node_modules/@vueuse/shared/index.mjs
+// ../../../node_modules/.pnpm/@vueuse+shared@10.11.1_vue@3.5.24/node_modules/@vueuse/shared/index.mjs
 function computedEager(fn, options) {
   var _a;
   const result = shallowRef();
@@ -1552,7 +1552,7 @@ function whenever(source, cb, options) {
   return stop;
 }
 
-// ../../../node_modules/.pnpm/@vueuse+core@10.11.0_vue@3.4.21_typescript@5.5.2_/node_modules/@vueuse/core/index.mjs
+// ../../../node_modules/.pnpm/@vueuse+core@10.11.1_vue@3.5.24/node_modules/@vueuse/core/index.mjs
 function computedAsync(evaluationCallback, initialState, optionsOrRef) {
   let options;
   if (isRef(optionsOrRef)) {
@@ -6977,8 +6977,7 @@ function useScrollLock(element, initialState = false) {
     set(v) {
       if (v)
         lock();
-      else
-        unlock();
+      else unlock();
     }
   });
 }
@@ -7320,8 +7319,7 @@ function useStorageAsync(key, initialValue, storage, options = {}) {
           data.value = mergeDefaults(value, rawInit);
         else if (type === "object" && !Array.isArray(value))
           data.value = { ...rawInit, ...value };
-        else
-          data.value = value;
+        else data.value = value;
       } else {
         data.value = await serializer.read(rawValue);
       }
@@ -8076,8 +8074,7 @@ function useUserMedia(options = {}) {
     (v) => {
       if (v)
         _start();
-      else
-        _stop();
+      else _stop();
     },
     { immediate: true }
   );

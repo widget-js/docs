@@ -4,7 +4,7 @@ export function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
     {
       text: '简介',
-      link: '/guide',
+      link: '/guide/index',
     },
     {
       text: '快速上手',
@@ -49,6 +49,60 @@ export function sidebarGuide(): DefaultTheme.SidebarItem[] {
       items: [
         { text: '@widget-js/vue3', link: 'https://widgetjs.cn/vue3' },
         { text: '@widget-js/cli', link: '/guide/wait' },
+      ],
+    },
+  ]
+}
+
+export function sidebarGuideEn(): DefaultTheme.SidebarItem[] {
+  return [
+    {
+      text: 'Introduction',
+      link: '/en/guide/index',
+    },
+    {
+      text: 'Getting Started',
+      collapsed: false,
+      items: [
+        { text: 'Preparation', link: '/en/guide/preparation' },
+        { text: 'Create Project', link: '/en/guide/create-project' },
+        { text: 'Create Widget', link: '/en/guide/create-widget' },
+      ],
+    },
+    {
+      text: 'Core Concepts',
+      collapsed: false,
+      items: [
+        { text: 'Widget Package', link: '/en/guide/widget-package' },
+        { text: 'Widget', link: '/en/guide/widget' },
+        { text: 'Widget Data Storage', link: '/en/guide/widget-data' },
+        { text: 'API', link: '/en/guide/api' },
+        { text: 'Broadcast Events', link: '/en/guide/broadcast' },
+        { text: 'Internationalization', link: '/en/guide/i18n' },
+      ],
+    },
+    {
+      text: 'Theme',
+      collapsed: false,
+      items: [
+        { text: 'Widget Theme', link: '/en/guide/theme' },
+      ],
+    },
+    {
+      text: 'Publishing',
+      collapsed: false,
+      items: [
+        { text: 'Preparation', link: '/en/guide/publish/preparation' },
+        { text: 'Build Offline Package', link: '/en/guide/publish/build' },
+        { text: 'Release', link: '/en/guide/publish/release' },
+      ],
+    },
+    {
+      text: 'Tools',
+      collapsed: false,
+      items: [
+        { text: '@widget-js/vue3', link: 'https://widgetjs.cn/vue3' },
+        { text: '@widget-js/cli', link: '/en/guide/wait' },
       ],
     },
   ]

@@ -1,17 +1,57 @@
 # BroadcastApi
 
-BroadcastApi provides the ability to send and listen to broadcast events,
-typically used for component packages to listen for system or application events,
-or for communication and data transfer between component packages.  
+## API各个函数功能
 
-## register
+### `send`
 
-register listener for broadcast event  
+send broadcast event
 
-## send
+**Params:**
 
-send broadcast event  
+| Param Name | Description |
+| --- | --- |
+| `event` | - |
 
-## unregister
+**Signature:**
+```typescript
+send: (event: BroadcastEvent) => Promise<void>
+```
 
-Unregister broadcast event  
+### `register`
+
+register listener for broadcast event
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `event` | - |
+
+**Signature:**
+```typescript
+register: (...event: BroadcastEventType[]) => Promise<void>
+```
+
+### `unregister`
+
+Unregister broadcast event
+
+**Params:**
+
+| Param Name | Description |
+| --- | --- |
+| `event` | - |
+
+**Signature:**
+```typescript
+unregister: (...event: BroadcastEventType[]) => Promise<void>
+```
+
+## API事件 Event
+
+暂无事件
+
+## API常量 Constants
+
+暂无常量
+
