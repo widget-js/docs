@@ -35,6 +35,15 @@ export function sidebarGuide(): DefaultTheme.SidebarItem[] {
       ],
     },
     {
+      text: 'Skills',
+      collapsed: false,
+      items: [
+        { text: '概览', link: '/guide/skills' },
+        { text: '创建项目（AI）', link: '/guide/skills/create-project' },
+        { text: '创建组件（AI）', link: '/guide/skills/create-widget' },
+      ],
+    },
+    {
       text: '发布组件',
       collapsed: false,
       items: [
@@ -86,6 +95,15 @@ export function sidebarGuideEn(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: 'Widget Theme', link: '/en/guide/theme' },
+      ],
+    },
+    {
+      text: 'Skills',
+      collapsed: false,
+      items: [
+        { text: 'Overview', link: '/en/guide/skills' },
+        { text: 'Create Project (AI)', link: '/en/guide/skills/create-project' },
+        { text: 'Create Widget (AI)', link: '/en/guide/skills/create-widget' },
       ],
     },
     {

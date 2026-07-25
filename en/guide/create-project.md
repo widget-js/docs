@@ -40,8 +40,6 @@ After creation, the project directory structure is as follows:
 │   │   │   ├── model
 │   │   │   │   └── ClockModel.ts         # 👈 Widget data model
 │   │   └── widget-router.ts
-├── .vscode
-├── env.d.ts
 ├── index.html
 ├── package.json
 ├── README.md
@@ -61,11 +59,12 @@ npm install
 
 ### Run Project
 
-Start the vite server
+Start the dev server:
 
 ```shell
 npm run dev
 ```
+
 The console will print the following information, indicating that the widget has been registered successfully.
 ```shell
 i Register widgets at： 2024-01-06T14:13:30.214Z                                                                                        22:13:30
