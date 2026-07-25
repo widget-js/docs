@@ -10,26 +10,14 @@
 
 ## 安装桌面组件客户端
 
-<img src="/logo.png" style="width: 24px"/>
+<!-- ###### 从微软商店安装
 
-###### 从微软商店安装
-
-[![Microsoft Store](https://img.shields.io/badge/Microsoft%20Store-Download-blue?style=for-the-badge&logo=microsoft)](https://www.microsoft.com/store/productId/9NPR50GQ7T53)
+[![Microsoft Store](https://img.shields.io/badge/Microsoft%20Store-Download-blue?style=for-the-badge&logo=microsoft)](https://www.microsoft.com/store/productId/9NPR50GQ7T53) -->
 
 ###### 从本站下载
 
-[![Download](https://img.shields.io/badge/Download-Installer-blue?style=for-the-badge&logo=github)](https://widgetjs.cn)
+[![Download](https://img.shields.io/badge/Download-Installer-blue?logo=htmx)](https://widgetjs.cn)
 
+###### GitHub下载
 
-## 启用开发者模式
-
-#### 打开桌面组件客户端后，右击右下角托盘图标，再长按GitHub图标5秒，启用开发者模式
-
-![Tray Setting Menu](/assets/guide/enable-dev.png)
-
-#### 开启后，鼠标右键点击组件会弹出DevTools菜单
-
-:::tip
-DevTools与Chrome DevTools一致，可以在此做网页调试
-  :::
-![Tray Setting Menu](/assets/guide/devtools.png)
+[![Download](https://img.shields.io/badge/Download-Installer-blue?logo=github)](https://github.com/widget-js/widgetjs/releases)

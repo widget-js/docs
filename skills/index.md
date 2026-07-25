@@ -27,8 +27,8 @@ Repository cloned
 Found 2 skills
 
 Select skills to install
-● widget-create
-● widget-new
+● widget-create  👈勾选
+● widget-new     👈勾选
 ```
 
 ## `widget-create`
