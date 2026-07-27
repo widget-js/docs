@@ -48,6 +48,7 @@ export function sidebarGuide(): DefaultTheme.SidebarItem[] {
       text: '工具库',
       collapsed: false,
       items: [
+        { text: '@widget-js/react', link: 'https://widget-js.github.io/react' },
         { text: '@widget-js/vue3', link: 'https://widgetjs.cn/vue3' },
         { text: '@widget-js/cli', link: '/guide/wait' },
       ],
@@ -62,8 +63,9 @@ export function sidebarSkills(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '概览', link: '/skills' },
-        { text: '创建项目', link: '/skills/create-project' },
-        { text: '创建组件', link: '/skills/create-widget' },
+        { text: '创建项目/widget-create', link: '/skills/create-project' },
+        { text: '创建组件/widget-new', link: '/skills/create-widget' },
+        { text: 'React组件/widget-react', link: '/skills/widget-react' },
       ],
     },
   ]
