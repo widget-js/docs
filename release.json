@@ -1,12 +1,12 @@
 {
-  "fileMap": [
-    {
-      "src": "./.vitepress/dist/",
-      "dest": "/www/wwwroot/widgetjs.cn",
-      "order": 1
-    }
+  "host": [
+    "mine"
   ],
-  "ftpConfig": {
-    "host": ["mine"]
-  }
+  "steps": [
+    {
+      "type": "upload",
+      "local": "./.vitepress/dist",
+      "remote": "/www/wwwroot/widgetjs.cn"
+    }
+  ]
 }

@@ -1,8 +1,8 @@
 import type { DefaultTheme } from 'vitepress'
 import { createRequire } from 'node:module'
 import { defineConfig } from 'vitepress'
-import { sidebarApi, sidebarApiEn } from '../en/api'
-import { sidebarGuide, sidebarGuideEn } from '../guide'
+import { sidebarApi } from '../api'
+import { sidebarGuide, sidebarSkills } from '../guide'
 
 const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
@@ -49,6 +49,7 @@ export default defineConfig({
       themeConfig: {
         nav: navZh(),
         sidebar: {
+          '/skills': sidebarSkills(),
           '/guide/': sidebarGuide(),
           '/api/': sidebarApi(),
           '/reference/': sidebarReferenceZh(),
@@ -83,56 +84,14 @@ export default defineConfig({
         darkModeSwitchTitle: '切换到深色模式',
       },
     },
-    en: {
-      label: 'English',
-      lang: 'en-US',
-      link: '/en/',
-      title: 'Widget Hub',
-      description: 'Capable and ergonomic widgets.',
-      themeConfig: {
-        nav: navEn(),
-        sidebar: {
-          '/en/guide/': sidebarGuideEn(),
-          '/en/api/': sidebarApiEn(),
-          '/en/reference/': sidebarReferenceEn(),
-        },
-        editLink: {
-          pattern: 'https://github.com/widget-js/widgets/edit/main/docs/:path',
-          text: 'Edit this page on GitHub',
-        },
-        footer: {
-          message: '<a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">闽ICP备2021010730号-3</a>',
-          copyright: 'Copyright © 2023-present Neo Fu',
-        },
-      },
-    },
   },
 })
 
 function navZh(): any[] {
   return [
     { text: '开发指南', link: '/guide/index', activeMatch: '/guide/' },
+    { text: 'Skills', link: '/skills', activeMatch: '/skills' },
     { text: 'API', link: '/api/AppApi', activeMatch: '/api/' },
-    {
-      text: pkg.version,
-      items: [
-        // {
-        //   text: 'Changelog',
-        //   link: 'https://github.com/vuejs/vitepress/blob/main/CHANGELOG.md'
-        // },
-        // {
-        //   text: 'Contributing',
-        //   link: 'https://github.com/vuejs/vitepress/blob/main/.github/contributing.md'
-        // }
-      ],
-    },
-  ]
-}
-
-function navEn(): any[] {
-  return [
-    { text: 'Guide', link: '/en/guide/index', activeMatch: '/en/guide/' },
-    { text: 'API', link: '/en/api/AppApi', activeMatch: '/en/api/' },
     {
       text: pkg.version,
       items: [
@@ -174,38 +133,6 @@ function sidebarReferenceZh(): DefaultTheme.SidebarItem[] {
             { text: '最后更新时间戳', link: '/reference/default-theme-last-updated' },
             { text: '搜索', link: '/reference/default-theme-search' },
             { text: 'Carbon Ads', link: '/reference/default-theme-carbon-ads' },
-          ],
-        },
-      ],
-    },
-  ]
-}
-
-function sidebarReferenceEn(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: 'Reference',
-      items: [
-        { text: 'Site Config', link: '/en/reference/site-config' },
-        { text: 'Frontmatter Config', link: '/en/reference/frontmatter-config' },
-        { text: 'Runtime API', link: '/en/reference/runtime-api' },
-        { text: 'CLI', link: '/en/reference/cli' },
-        {
-          text: 'Default Theme',
-          items: [
-            { text: 'Overview', link: '/en/reference/default-theme-config' },
-            { text: 'Nav', link: '/en/reference/default-theme-nav' },
-            { text: 'Sidebar', link: '/en/reference/default-theme-sidebar' },
-            { text: 'Home Page', link: '/en/reference/default-theme-home-page' },
-            { text: 'Footer', link: '/en/reference/default-theme-footer' },
-            { text: 'Layout', link: '/en/reference/default-theme-layout' },
-            { text: 'Badge', link: '/en/reference/default-theme-badge' },
-            { text: 'Team Page', link: '/en/reference/default-theme-team-page' },
-            { text: 'Prev / Next Links', link: '/en/reference/default-theme-prev-next-links' },
-            { text: 'Edit Link', link: '/en/reference/default-theme-edit-link' },
-            { text: 'Last Updated Timestamp', link: '/en/reference/default-theme-last-updated' },
-            { text: 'Search', link: '/en/reference/default-theme-search' },
-            { text: 'Carbon Ads', link: '/en/reference/default-theme-carbon-ads' },
           ],
         },
       ],
