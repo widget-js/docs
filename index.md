@@ -24,6 +24,9 @@ hero:
       link: https://github.com/widget-js/widgets
 
 features:
+  - icon: 🤖
+    title: AI 智能生成
+    details: 用自然语言描述你的想法，AI 即刻为你生成专属桌面组件，零代码实现创意。
   - icon: 🚀
     title: PowerUp
     details: 融汇移动端体验和Web端技术于桌面之上，推动功能实用性和视觉体验的全面升级，塑造新一代桌面环境。
@@ -33,7 +36,4 @@ features:
   - icon: ✨
     title: 组件可拓展
     details: 利用我们提供的API，开发者可以便捷且高效地创造出属于自己的独特组件。
-  - icon: 🍭
-    title: 编不出来了
-    details: 上面描述都是人工智能生成，不要信。软件有点占内存，目前还在优化中。
 ---

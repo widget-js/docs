@@ -3,6 +3,7 @@ import DefaultTheme from 'vitepress/theme'
 import BilibiliVideo from './components/BilibiliVideo.vue'
 import LogoTab from './components/LogoTab.vue'
 import PromptTypewriter from './components/PromptTypewriter.vue'
+import ChatReplay from './components/ChatReplay.vue'
 
 export default {
   ...DefaultTheme,
@@ -10,5 +11,6 @@ export default {
     app.component('BilibiliVideo', BilibiliVideo)
     app.component('LogoTab', LogoTab)
     app.component('PromptTypewriter', PromptTypewriter)
+    app.component('ChatReplay', ChatReplay)
   },
 } satisfies Theme

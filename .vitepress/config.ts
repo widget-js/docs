@@ -2,7 +2,7 @@ import type { DefaultTheme } from 'vitepress'
 import { createRequire } from 'node:module'
 import { defineConfig } from 'vitepress'
 import { sidebarApi } from '../api'
-import { sidebarGuide, sidebarSkills } from '../guide'
+import { sidebarGuide } from '../guide'
 
 const require = createRequire(import.meta.url)
 const pkg = require('../package.json')
@@ -30,14 +30,6 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/widget-js/widgets' },
       { icon: 'discord', link: 'https://discord.com/invite/vwSAaRR8cT' },
     ],
-    // search: {
-    //   provider: 'algolia',
-    //   options: {
-    //     appId: '8J64VVRP8K',
-    //     apiKey: 'a18e2f4cc5665f6602c5631fd868adfd',
-    //     indexName: 'vitepress'
-    //   }
-    // },
   },
 
   locales: {
@@ -49,7 +41,6 @@ export default defineConfig({
       themeConfig: {
         nav: navZh(),
         sidebar: {
-          '/skills': sidebarSkills(),
           '/guide/': sidebarGuide(),
           '/api/': sidebarApi(),
           '/reference/': sidebarReferenceZh(),
@@ -89,8 +80,7 @@ export default defineConfig({
 
 function navZh(): any[] {
   return [
-    { text: '开发指南', link: '/guide/index', activeMatch: '/guide/' },
-    { text: 'Skills', link: '/skills', activeMatch: '/skills' },
+    { text: 'AI生成组件', link: '/guide/index', activeMatch: '/guide/' },
     { text: 'API', link: '/api/AppApi', activeMatch: '/api/' },
     {
       text: pkg.version,

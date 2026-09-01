@@ -3,17 +3,13 @@ import type { DefaultTheme } from 'vitepress'
 export function sidebarGuide(): DefaultTheme.SidebarItem[] {
   return [
     {
-      text: '简介',
-      link: '/guide/index',
-    },
-    {
       text: '快速上手',
       collapsed: false,
       items: [
-        { text: '准备工作', link: '/guide/preparation' },
-        { text: '创建项目', link: '/guide/create-project' },
-        { text: '创建组件', link: '/guide/create-widget' },
-        { text: '使用AI创建', link: '/skills/index' },
+        { text: '准备工作', link: '/guide' },
+        { text: '创建第一个组件', link: '/guide/create-project' },
+        { text: '生成离线包', link: '/guide/build' },
+        { text: '发布组件', link: '/guide/publish' },
       ],
     },
     {
@@ -39,9 +35,9 @@ export function sidebarGuide(): DefaultTheme.SidebarItem[] {
       text: '发布组件',
       collapsed: false,
       items: [
-        { text: '准备工作', link: '/guide/publish/preparation' },
-        { text: '编译离线包', link: '/guide/publish/build' },
-        { text: '发布', link: '/guide/publish/release' },
+        { text: '发布前准备工作', link: '/guide/publish/preparation' },
+        { text: '通过GitHub发布', link: '/guide/publish/github' },
+        { text: '通过服务器发布', link: '/guide/publish/self-host' },
       ],
     },
     {
@@ -49,23 +45,7 @@ export function sidebarGuide(): DefaultTheme.SidebarItem[] {
       collapsed: false,
       items: [
         { text: '@widget-js/react', link: 'https://widget-js.github.io/react' },
-        { text: '@widget-js/vue3', link: 'https://widgetjs.cn/vue3' },
         { text: '@widget-js/cli', link: '/guide/wait' },
-      ],
-    },
-  ]
-}
-
-export function sidebarSkills(): DefaultTheme.SidebarItem[] {
-  return [
-    {
-      text: 'Skills',
-      collapsed: false,
-      items: [
-        { text: '概览', link: '/skills' },
-        { text: '创建项目/widget-create', link: '/skills/create-project' },
-        { text: '创建组件/widget-new', link: '/skills/create-widget' },
-        { text: 'React组件/widget-react', link: '/skills/widget-react' },
       ],
     },
   ]
